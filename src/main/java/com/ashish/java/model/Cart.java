@@ -20,6 +20,7 @@ public class Cart {
     private Cart(){
 
     }
+    private DiscountService discountService;
 
     /***
      *
@@ -43,11 +44,11 @@ public class Cart {
         if(products==null){
             return BigDecimal.ZERO;
         }
-        Map<Product, BigDecimal> counted= Arrays.stream(products).map(s -> productFactory.getProduct(s))
+        Map<Product, BigDecimal> productCount= Arrays.stream(products).map(s -> productFactory.getProduct(s))
                 .collect(Collectors.groupingBy(Function.identity(),Collectors.collectingAndThen(Collectors.counting(), BigDecimal::valueOf)));
-        DiscountService discountService= new DiscountService();
-        discountService.calculateProductsAfterDiscount(counted);
-        return counted.entrySet().stream().map(productBigDecimalEntry ->
+        discountService= new DiscountService();
+        discountService.calculateProductsAfterDiscount(productCount);
+        return productCount.entrySet().stream().map(productBigDecimalEntry ->
                         productBigDecimalEntry.getKey().getPrice().multiply(productBigDecimalEntry.getValue()))
                 .reduce(BigDecimal.ZERO, (subtotal, element) -> subtotal.add(element));
     }

@@ -1,8 +1,6 @@
 package com.ashish.java.discounting.strategy;
 
-import com.ashish.java.DiscountType;
 import com.ashish.java.exception.InvalidQuantityException;
-import com.ashish.java.exception.NoProductExistException;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;

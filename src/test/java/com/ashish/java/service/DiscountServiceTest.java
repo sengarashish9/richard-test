@@ -1,7 +1,6 @@
 package com.ashish.java.service;
 
-import com.ashish.java.DiscountType;
-import com.ashish.java.exception.NoProductExistException;
+import com.ashish.java.enums.DiscountType;
 import com.ashish.java.model.Product;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
@@ -12,7 +11,6 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 class DiscountServiceTest {
 
@@ -25,7 +23,7 @@ class DiscountServiceTest {
     }
     @Test
     void testDiscountService() {
-        Product apple=new Product("Apple",BigDecimal.valueOf(.35));
+        Product apple=new Product("Apple",BigDecimal.valueOf(.35),null);
         Product melons=new Product("Melons",BigDecimal.valueOf(.50), DiscountType.ONE_FOR_ONE);
         Product limes=new Product("Limes",BigDecimal.valueOf(.15), DiscountType.THREE_FOR_TWO);
         products.put(apple,BigDecimal.valueOf(4));

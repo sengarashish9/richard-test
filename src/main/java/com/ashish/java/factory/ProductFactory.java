@@ -1,6 +1,6 @@
 package com.ashish.java.factory;
 
-import com.ashish.java.DiscountType;
+import com.ashish.java.enums.DiscountType;
 import com.ashish.java.exception.NoProductExistException;
 import com.ashish.java.model.Product;
 
@@ -16,9 +16,9 @@ public class ProductFactory {
      */
     public Product getProduct(String name) throws NoProductExistException{
         if (name.equalsIgnoreCase("Apple")) {
-            return new Product(name, new BigDecimal(.35).setScale(3, RoundingMode.HALF_UP));
+            return new Product(name, new BigDecimal(.35).setScale(3, RoundingMode.HALF_UP),null);
         } else if (name.equalsIgnoreCase("Bananas")) {
-            return new Product(name, new BigDecimal(.20).setScale(3, RoundingMode.HALF_UP));
+            return new Product(name, new BigDecimal(.20).setScale(3, RoundingMode.HALF_UP),null);
         } else if (name.equalsIgnoreCase("Melons")) {
             return new Product(name, new BigDecimal(.50).setScale(3, RoundingMode.HALF_UP), DiscountType.ONE_FOR_ONE);
         } else if (name.equalsIgnoreCase("Limes")) {

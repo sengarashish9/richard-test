@@ -1,6 +1,6 @@
 package com.ashish.java.factory;
 
-import com.ashish.java.DiscountType;
+import com.ashish.java.enums.DiscountType;
 import com.ashish.java.exception.NoProductExistException;
 import com.ashish.java.model.Product;
 import org.junit.jupiter.api.AfterEach;
@@ -11,7 +11,6 @@ import org.junit.jupiter.api.Test;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 class ProductFactoryTest {
 
